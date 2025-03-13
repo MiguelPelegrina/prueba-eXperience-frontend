@@ -1,0 +1,20 @@
+
+<mat-form-field>
+  <!-- LABEL -->
+  <mat-label>{{placeholder}}</mat-label>
+  <!-- /LABEL -->
+
+  <!-- TODO Better design -->
+  <!-- INPUT -->
+  <input #input matInput placeholder={{placeholder}} type="text" [(ngModel)]="value" (ngModelChange)="onValueChange()">
+  <!-- /INPUT -->
+
+  <!-- CLEAR BUTTON -->
+  @if(value){
+    <button matSuffix mat-icon-button aria-label="Clear" (click)="value=''; onValueChange()">
+      <mat-icon>close</mat-icon>
+    </button>
+  }
+  <!-- /CLEAR BUTTON -->
+
+</mat-form-field>

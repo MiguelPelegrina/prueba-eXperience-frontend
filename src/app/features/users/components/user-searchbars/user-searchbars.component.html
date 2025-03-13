@@ -1,0 +1,27 @@
+<!-- TODO
+ - Make expandable
+ - Make it work with enter on each input
+ - Responsive
+
+ -->
+<div class="flex">
+  <h3 class="d-flex justify-content-center">Busque por...</h3>
+  <div class="d-flex justify-content-around">
+    <app-searchbar placeholder="Correo electrónico" (valueChange)="updateUserField('email', $event)"></app-searchbar>
+    <app-searchbar placeholder="Nombre" (valueChange)="updateUserField('name', $event)"></app-searchbar>
+  </div>
+
+  <div class="d-flex justify-content-around">
+    <app-searchbar  placeholder="1º apellido" (valueChange)="updateUserField('firstSurname', $event)"></app-searchbar>
+    <app-searchbar placeholder="2º apellido" (valueChange)="updateUserField('secondSurname', $event)"></app-searchbar>
+  </div>
+</div>
+
+<!-- TODO Output values-->
+<div class="d-flex justify-content-center">
+  <button mat-fab extended (click)="search()">
+    Buscar
+    <mat-icon>search</mat-icon>
+  </button>
+</div>
+

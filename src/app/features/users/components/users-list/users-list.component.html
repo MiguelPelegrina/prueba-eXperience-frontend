@@ -1,0 +1,60 @@
+<h1 class="d-flex justify-content-center">Listado de usuarios</h1>
+
+<!-- TODO Generate query -->
+<app-user-searchbars (searchEmitter)="onSearch($event)"></app-user-searchbars>
+
+  <!-- <app-user-table [users$]="users$" (changePageEmitter)="changePage($event)"></app-user-table> -->
+
+<div class="container mat-elevation-z8 py-3">
+  <!-- TABLE -->
+  <table
+    [dataSource]="users$"
+    matSort
+    mat-table
+    multiTemplateDataRows
+  >
+    <!-- EMAIL -->
+    <ng-container matColumnDef="email">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header matTooltip="Correo electrónico del usuario" sortActionDescription="Ordenar por correo electrónico">Correo electrónico</th>
+      <td mat-cell *matCellDef="let user"> {{user.email}}</td>
+    </ng-container>
+    <!-- /EMAIL -->
+
+    <!-- EMAIL -->
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header matTooltip="Nombre del usuario" sortActionDescription="Ordenar por nombre">Nombre</th>
+      <td mat-cell *matCellDef="let user"> {{user.name}}</td>
+    </ng-container>
+    <!-- /EMAIL -->
+
+    <!-- EMAIL -->
+    <ng-container matColumnDef="firstSurname">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header matTooltip="1º apellido del usuario" sortActionDescription="Ordenar por 1º apellido">1º apellido</th>
+      <td mat-cell *matCellDef="let user"> {{user.firstSurname}}</td>
+    </ng-container>
+    <!-- /EMAIL -->
+
+    <!-- EMAIL -->
+    <ng-container matColumnDef="secondSurname">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header matTooltip="2º apellido del usuario" sortActionDescription="Ordenar por 2º apellido">2º apellido</th>
+      <td mat-cell *matCellDef="let user"> {{user.secondSurname}}</td>
+    </ng-container>
+    <!-- /EMAIL -->
+
+    <tr mat-header-row *matHeaderRowDef="columnsToDisplay; sticky: true"></tr>
+    <tr mat-row *matRowDef="let element; columns: columnsToDisplay;">
+    </tr>
+  </table>
+  <!-- /TABLE -->
+
+  <!-- PAGINATOR -->
+  <mat-paginator
+    [length]="dataLength"
+    [pageIndex]="dataPage"
+    [pageSize]="dataPageSize"
+    [pageSizeOptions]="dataPageSizeOptions"
+    [showFirstLastButtons]="true"
+  >
+  </mat-paginator>
+  <!-- /PAGINATOR -->
+</div>
