@@ -21,7 +21,6 @@ export class UserSearchbarsComponent {
   @Output()
   public searchEmitter = new EventEmitter<Partial<User>>();
 
-  // TODO Make type safe
   updateUserField(field: keyof UserQueryRequest, value: any) {
     this.user[field] = value || undefined;  // Remove empty fields
   }

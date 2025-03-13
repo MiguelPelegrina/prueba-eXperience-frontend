@@ -12,7 +12,6 @@ import { UserQueryRequest } from '../models/userQueryRequest';
 export class UserService {
   constructor(private httpClient: HttpClient, private queryBuilder: QueryBuilderService) {}
 
-  // TODO Implement better HTTP practices
   getUsersByQuery(parameters: UserQueryRequest): Observable<UserResponse> {
     const params = this.queryBuilder.buildQuery(parameters);
 
