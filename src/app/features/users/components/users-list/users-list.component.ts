@@ -72,6 +72,7 @@ export class UsersListComponent implements AfterViewInit{
         }
 
         console.log(response);
+        console.log(this.dataPage);
 
         this.dataLength = response.totalResults;
         this.dataPage = response.currentPage;
