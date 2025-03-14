@@ -9,8 +9,9 @@ import { User } from '../../models/user';
 import { UserService } from '../../services/user.service';
 import { UserSearchbarsComponent } from "../user-searchbars/user-searchbars.component";
 
-// TODO
-// - Fix paginator
+/**
+ * Users list component.
+ */
 @Component({
   selector: 'app-users-list',
   imports: [MaterialModule, SharedModule, UserSearchbarsComponent],
@@ -27,10 +28,11 @@ export class UsersListComponent implements AfterViewInit{
   protected searchbars!: UserSearchbarsComponent;
 
   // Fields
-  protected users$: Observable<User[]> = new Observable<User[]>();
   protected isLoading = false;
   protected searchQuery: Partial<User> = {};
+  protected users$: Observable<User[]> = new Observable<User[]>();
 
+  // Table
   protected columnsToDisplay: string [] = ['email', 'name', 'firstSurname', 'secondSurname'];
   protected dataLength = 0;
   protected dataPage = 0
@@ -40,16 +42,26 @@ export class UsersListComponent implements AfterViewInit{
   // Constructor
   constructor(private userService: UserService) {}
 
+  /**
+   * After view init lifecycle hook.
+   */
   ngAfterViewInit(): void {
     this.loadUsers();
   }
 
+  /**
+   * Search event handler.
+   * @param query - Query to search.
+   */
   onSearch(query: Partial<User>) {
     this.searchQuery = query;
     this.paginator.pageIndex = 0
     this.loadUsers();
   }
 
+  /**
+   * Load users.
+   */
   private loadUsers() {
     this.users$ = merge(
       this.paginator.page
@@ -70,9 +82,6 @@ export class UsersListComponent implements AfterViewInit{
         if (!response) {
           return [];
         }
-
-        console.log(response);
-        console.log(this.dataPage);
 
         this.dataLength = response.totalResults;
         this.dataPage = response.currentPage;

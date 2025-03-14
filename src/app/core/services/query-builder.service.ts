@@ -1,6 +1,9 @@
 import { HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
+/**
+ * Service to build query params for HTTP requests.
+ */
 @Injectable({
   providedIn: 'root'
 })

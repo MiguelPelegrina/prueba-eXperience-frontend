@@ -2,12 +2,13 @@ import { Injectable } from "@angular/core";
 import { MatPaginatorIntl } from "@angular/material/paginator";
 import { Subject } from "rxjs";
 
+/**
+ * Custom paginator internationalization. Replaces the default paginator labels in english with spanish ones.
+ */
 @Injectable()
 export class CustomPaginatorIntl implements MatPaginatorIntl {
   changes = new Subject<void>();
 
-  // For internationalization, the `$localize` function from
-  // the `@angular/localize` package can be used.
   firstPageLabel = $localize`Primera página`;
   itemsPerPageLabel = $localize`Usuarios por página:`;
   lastPageLabel = $localize`Última página`;

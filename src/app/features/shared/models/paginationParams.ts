@@ -1,5 +1,5 @@
 /**
- * Defines pagination parameters
+ * Defines pagination parameters.
  */
 export interface PagingParams {
   page?: number;

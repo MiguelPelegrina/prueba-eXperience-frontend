@@ -7,6 +7,9 @@ import { MatPaginatorModule } from "@angular/material/paginator";
 import { MatProgressBarModule } from "@angular/material/progress-bar";
 import { MatTableModule } from '@angular/material/table';
 
+/**
+ * Material module. Contains all the material components used in the application.
+ */
 @NgModule({
   imports: [
     MatButtonModule,

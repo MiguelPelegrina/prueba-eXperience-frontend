@@ -2,6 +2,9 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { MaterialModule } from '../../material.module';
 import { SharedModule } from '../../shared.module';
 
+/**
+ * Searchbar component.
+ */
 @Component({
   selector: 'app-searchbar',
   imports: [MaterialModule, SharedModule],
@@ -18,6 +21,9 @@ export class SearchbarComponent {
 
   protected value: string = '';
 
+  /**
+   * Emit new value when it changes.
+   */
   onValueChange() {
     this.valueChange.emit(this.value);
   }
